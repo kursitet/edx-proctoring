@@ -1,19 +1,10 @@
 {% load i18n %}
 <div class="sequence timed-exam completed" data-exam-id="{{exam_id}}">
   <h3>
-    {% blocktrans %}
-      Are you sure that you want to submit your timed exam?
-    {% endblocktrans %}
+    Вы уверены, что хотите завершить тестирование?
   </h3>
   <p>
-    {% blocktrans %}
-      Make sure that you have selected "Submit" for each problem before you submit your exam.
-    {% endblocktrans %}
-  </p>
-  <p>
-    {% blocktrans %}
-      After you submit your exam, your exam will be graded.
-    {% endblocktrans %}
+    Убедитесь в том, что вы нажали кнопку «Отправить» под каждым заданием.
   </p>
   <button type="button" name="submit-proctored-exam" class="exam-action-button btn btn-pl-primary btn-base" data-action="submit" data-exam-id="{{exam_id}}" data-change-state-url="{{change_state_url}}">
     {% blocktrans %}

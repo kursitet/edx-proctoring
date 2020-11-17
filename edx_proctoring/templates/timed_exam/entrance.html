@@ -6,15 +6,19 @@
     {% endblocktrans %}
   </h3>
   <p>
-    {% trans "This exam has a time limit associated with it." %}
-    <strong>
-      {% trans "To pass this exam, you must complete the problems in the time allowed." %}
-    </strong>
-    {% trans "After you select " %}
-    <strong>
-      {% trans "I am ready to start this timed exam," %}
-    </strong>
-    {% trans "you will have "%} {{total_time|lower}} {% trans " to complete and submit the exam." %}
+
+     На выполнение этого тестирования у вас будет ровно {{total_time|lower}}.<br>
+
+     Отсчёт времени начнется сразу после того, как вы нажмёте на кнопку
+     «<strong>Начать тестирование</strong>». Счётчик времени будет 
+     располагаться вверху страницы. На нём вы увидите, сколько времени 
+     осталось до конца тестирования.<br>
+
+     Как только время закончится, система автоматически отправит 
+     на проверку те ваши ответы, под которыми вы нажали кнопку «<strong>Отправить</strong>».<br>
+
+     Если кнопка «Отправить» не была нажата под каким-то из заданий, ответ на это задание не будет учтён и проверен.
+
   </p>
   <button class="gated-sequence start-timed-exam action-primary" data-ajax-url="{{enter_exam_endpoint}}" data-exam-id="{{exam_id}}">
     <a>
@@ -63,12 +67,10 @@
           }
         ).fail(function(){
           enableClickEvent();
-          var msg = gettext(
-            "There has been a problem starting your exam.\n\n" +
-            "Possible reasons are that your account has not been fully activated,\n" +
-            "you are experiencing a network connection problem, or there has been\n" +
-            "a service disruption. Please check these potential problems and try again."
-          );
+          var msg = "При открытии экзамена что-то пошло не так.\n\n" +
+                    "убедитесь, что у вас есть доступ в интернет\n" +
+                    "убедитесь, что вы подписаны на этот курс\n" +
+                    "попробуйте зайти несколько позже.";
           alert(msg);
         });
       } else {
