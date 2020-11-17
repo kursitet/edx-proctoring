@@ -1,14 +1,9 @@
 {% load i18n %}
 <div class="sequence timed-exam entrance" data-exam-id="{{exam_id}}">
   <h3>
-    {% blocktrans %}
-    {{ exam_name }} is a Timed Exam ({{total_time}})
-    {% endblocktrans %}
+     На выполнение этого тестирования у вас будет ровно {{total_time|lower}}.
   </h3>
   <p>
-
-     На выполнение этого тестирования у вас будет ровно {{total_time|lower}}.<br>
-
      Отсчёт времени начнется сразу после того, как вы нажмёте на кнопку
      «<strong>Начать тестирование</strong>». Счётчик времени будет 
      располагаться вверху страницы. На нём вы увидите, сколько времени 
